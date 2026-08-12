@@ -12,6 +12,7 @@ class Movie {
   final Color color1;
   final Color color2;
   final IconData icon;
+  final String posterUrl;
 
   Movie({
   required this.title, 
@@ -20,6 +21,7 @@ class Movie {
   required this.rating, 
   required this.description, 
   required this.color1, 
-  required this.color2, 
+  required this.color2,
+  required this.posterUrl,
   required this.icon});
 }

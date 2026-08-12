@@ -1,5 +1,8 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smart_app/data/mock_movies.dart';
+import 'package:smart_app/widgets/movie_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -34,17 +37,26 @@ class HomeScreen extends StatelessWidget {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4, // elementos que se mostraran en un grid de una fila con N elementos que uno defina
                     mainAxisSpacing: 24, //espaciado entre cada elemento del grid
-                    crossAxisSpacing: 24,
-                    childAspectRatio: 0.75 // efecto cuando se selecciona
+                    crossAxisSpacing: 18,
+                    childAspectRatio: 0.8 // efecto cuando se selecciona
                   ),
                   itemCount: mockMovies.length, 
                   itemBuilder: (context, index) {
                     final movie = mockMovies[index];
 
-                    return Center(
-                      child: Text(movie.title),
+                    return FadeInUp(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: MovieCard(
+                          movie: movie, 
+                          onSelect: () { //cada vez que se le da enter a una pelicula sale este mensaje
+                            context.push('/detail');
+                           }, 
+                          autofocus: index == 0
+                        ),
+                      )
                     );
-                  }
+                  },
                 )
               )
             ],
@@ -54,3 +66,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+//! git commit -m "fix: Configuración de paquetes (go_router, google_font, animate_do). Correción de UI/UX"
