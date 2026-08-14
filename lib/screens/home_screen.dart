@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                         child: MovieCard(
                           movie: movie, 
                           onSelect: () { //cada vez que se le da enter a una pelicula sale este mensaje
-                            context.push('/detail');
+                            context.push('/detail', extra:movie);
                            }, 
                           autofocus: index == 0
                         ),

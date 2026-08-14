@@ -1,4 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:smart_app/models/movie.dart';
+import 'package:smart_app/screens/detail_screen.dart';
 import 'package:smart_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/detail',
-      builder: (context, state) => const Placeholder(),
+      builder: (context, state) => DetailScreen(movie: state.extra as Movie),
     )
   ]
 );
